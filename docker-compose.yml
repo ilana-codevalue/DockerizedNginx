@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    depends_on:
+     - db
+    build:
+      context: ./web
+    ports:
+     - "8080:80"
+  
+  db:
+    build:
+      context: ./db
+    volumes: 
+      - db_data:/data
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+
+volumes:
+  db_data:
+    
+    
+ 

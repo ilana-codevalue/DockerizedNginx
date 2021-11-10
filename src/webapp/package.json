@@ -1,0 +1,9 @@
+{
+  "name": "webapp",
+  "version": "0.0.0",
+  "description": "sample webapp",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
