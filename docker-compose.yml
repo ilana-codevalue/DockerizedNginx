@@ -17,6 +17,19 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+
+    deploy:
+      mode: replicated
+      replicas: 6
+    
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
 
 volumes:
   db_data:
