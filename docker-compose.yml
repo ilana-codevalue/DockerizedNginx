@@ -3,8 +3,8 @@ services:
   web:
     depends_on:
      - db
-    build:
-      context: ./web
+    restart: always
+    image: localhost:5000/my-web:latest
     ports:
      - "8080:80"
   
@@ -20,7 +20,6 @@ services:
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
       MYSQL_USER: "${MYSQL_USER}"
-
     deploy:
       mode: replicated
       replicas: 6
@@ -30,9 +29,6 @@ services:
     restart: always
     ports:
       - 8081:8080
-
 volumes:
   db_data:
-    
-    
  
